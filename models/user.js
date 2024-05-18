@@ -23,6 +23,12 @@ const User = sequelize.define("User", {
   refreshTokenExpires: DataTypes.DATE,
   resetPasswordToken: DataTypes.STRING,
   resetPasswordExpires: DataTypes.DATE,
+  role: {
+    type: DataTypes.ENUM,
+    values: ["user", "admin"],
+    allowNull: false,
+    defaultValue: "user",
+  },
 });
 
 sequelize.sync(); // Ensure models are synced with DB
